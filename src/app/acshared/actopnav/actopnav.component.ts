@@ -58,7 +58,7 @@ export class ActopnavComponent implements OnInit {
   set_display() {
 
     switch (this.screen) {
-      case ('achome'): {
+      case ('acdhome'): {
         this.set_dev_hm_pg();
         break;
       }
@@ -74,7 +74,7 @@ export class ActopnavComponent implements OnInit {
         this.set_dev_hm_pg();
         break;
       }
-      case ('homepg'): {
+      case ('achome'): {
         this.set_hm_pg();
         break;
       }
@@ -126,7 +126,7 @@ export class ActopnavComponent implements OnInit {
   this.comlogo_txt2val = '-';
   this.comlogo_txt3 = false;
   this.comlogo_txt3val = '';
-  this.mid_section = true;
+  this.mid_section = false;
   this.mid_devlnk = true;
   this.end_section = true;
   this.end_reglnk = true;
