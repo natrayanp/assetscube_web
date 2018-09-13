@@ -17,12 +17,12 @@ export class AchomeComponent implements OnInit {
 
   navclick(event) {
     switch (event) {
-      case ('login'): {
+      case ('register'): {
         // this.router.navigate(['/login']);
         window.location.href = 'http://localhost:4201/login/signup?type=signup&appid=12323235565656&home=http://localhost:4200';
         break;
       }
-      case ('register'): {
+      case ('login'): {
         this.router.navigate(['/login/signup']);
         break;
       }
