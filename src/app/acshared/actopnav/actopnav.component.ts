@@ -47,10 +47,12 @@ export class ActopnavComponent implements OnInit {
   }
 
   singup(btn) {
+    console.log('inside singup');
     if (btn === 'logout') {
         console.log('inside singup');
         // this.logout_handler();
     } else {
+      console.log(btn);
       this.navclickevnt.emit(btn);
     }
   }

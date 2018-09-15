@@ -1,11 +1,25 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-
-export const environment = {
-  production: false
+export const apiurls = {
+  // Common routes for all
+  all_api_url: 'http://127.0.0.1:8081'/*'https://wuob9hr3o3.execute-api.ap-south-1.amazonaws.com/dev'*/,
+  // Individual routes
+  url_regis: 'http://127.0.0.1:8081',
 };
 
+export const environment = {
+  production: false,
+  // url_<screen + Functionality>
+  url_regis: apiurls.all_api_url,
+  endpt_regis : 'signup',
+};
+
+
+export const installation = {
+  entityid: 'ASSETSCUBE',
+  countryid: 'IN'
+};
 /*
  * In development mode, to ignore zone related error stack frames such as
  * `zone.run`, `zoneDelegate.invokeTask` for easier debugging, you can
