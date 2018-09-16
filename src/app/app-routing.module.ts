@@ -5,11 +5,11 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
 { path: '',
   loadChildren: './feature/acnologin/acnologin.module#AcnologinModule'
-},/*
-{
-  path: 'developers',
-  loadChildren: './devmodule/devmodule.module#DevmoduleModule'
 },
+{
+  path: 'noti',
+  loadChildren: './feature/acnoti/acnoti.module#AcnotiModule'
+},/*
   {
     path: 'authorise',
     loadChildren: './authorise/authorise.module#AuthoriseModule'
