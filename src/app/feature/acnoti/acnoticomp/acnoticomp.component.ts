@@ -49,4 +49,8 @@ export class AcnoticompComponent implements OnInit {
       
   }
 
+  navclick(e) {
+    console.log('ddd');
+  }
+
 }
