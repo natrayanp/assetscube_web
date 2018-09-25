@@ -6,6 +6,7 @@ import { AcnoticompComponent } from './acnoticomp/acnoticomp.component';
 
 import { AcsharedModule } from '../../acshared/acshared.module';
 import { AlertmodModule } from '../../accommonmod/alertmod/alertmod.module';
+import { AcnawalcallbkComponent } from './acnawalcallbk/acnawalcallbk.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,6 @@ import { AlertmodModule } from '../../accommonmod/alertmod/alertmod.module';
     AcsharedModule,
     AlertmodModule
   ],
-  declarations: [AcnoticompComponent]
+  declarations: [AcnoticompComponent, AcnawalcallbkComponent]
 })
 export class AcnotiModule { }
