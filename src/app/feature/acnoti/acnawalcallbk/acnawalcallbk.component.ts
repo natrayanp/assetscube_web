@@ -52,15 +52,15 @@ export class AcnawalcallbkComponent implements OnInit {
   }
 
   signup_success_handler() {
-    const dat = {'regdata': this.allParams['regdata'], 'callbkfrm': 'nawlcube'}
+    const dat = {'type': this.allParams['type'], 'callbkfrm': 'nawalcube', 'regdata': this.allParams['regdata'], 'msg': this.allParams['msg'] };
     this.api.apipost('acsignupcallbk',dat)
     .subscribe(
-      res => {
-
-      },
+      res =>    {
+                  
+                },
       errors => {
-
-      }
+                  this.signup_error_page();
+                }
     )
       
     
