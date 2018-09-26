@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { installation } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+
+  ngOnInit() {
+    sessionStorage.setItem('entityid', installation.entityid);
+    sessionStorage.setItem('countryid', installation.countryid);
+  }
 }

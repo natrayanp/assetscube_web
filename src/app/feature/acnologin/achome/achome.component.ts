@@ -23,6 +23,7 @@ export class AchomeComponent implements OnInit {
       case ('register'): {
         // this.router.navigate(['/login']);
         // window.location.href = 'http://localhost:8080/appsignup?type=signup&appid=12323235565656&home=http://localhost:4200';
+        console.log("print inside register")
         this.api.apiget('regis')
         .subscribe(
           (res: any) => window.location.href = res.url,

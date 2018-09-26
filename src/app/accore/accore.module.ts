@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { ApiserviceService } from './apiservice/apiservice.service';
 import { AcinterceptorService } from './interceptor/acinterceptor.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { AcinterceptorService } from './interceptor/acinterceptor.service';
   declarations: [],
   providers: [
     ApiserviceService,
-    AcinterceptorService
+    AcinterceptorService,
+    {provide: HTTP_INTERCEPTORS, useClass: AcinterceptorService, multi: true, },
   ]
 })
 export class AccoreModule { }

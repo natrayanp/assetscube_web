@@ -18,6 +18,7 @@ export class ApiserviceService {
 
   // POST request to API
   apipost(scrndfunc, data) {
+    console.log(scrndfunc, data);
     console.log(environment['url_' + scrndfunc] + '/' + environment['endpt_' + scrndfunc]);
     return this.http.post(
                           environment['url_' + scrndfunc] + '/' + environment['endpt_' + scrndfunc],
@@ -29,6 +30,7 @@ export class ApiserviceService {
 
   // GET request to API
   apiget(scrndfunc) {
+    console.log(scrndfunc);
     return this.http.get(
       environment['url_' + scrndfunc] + '/' + environment['endpt_' + scrndfunc]
                          // {headers: this.set_http_headers(conttyp), observe: 'response'}

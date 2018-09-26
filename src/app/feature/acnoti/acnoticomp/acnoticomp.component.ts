@@ -21,11 +21,13 @@ export class AcnoticompComponent implements OnInit {
               ) { }
 
   ngOnInit() {
+    /*
     this.notidata = {};
     this.id1 = this.notify.get_unq_id();
     this.allParams = this.route.snapshot.queryParams; // allParams is an object
     this.noti_handler();    
     //this.generate_page();
+    */
   }
 
 

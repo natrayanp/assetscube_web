@@ -52,13 +52,15 @@ export class AcnawalcallbkComponent implements OnInit {
   }
 
   signup_success_handler() {
-    const dat = {'type': this.allParams['type'], 'callbkfrm': 'nawalcube', 'regdata': this.allParams['regdata'], 'msg': this.allParams['msg'] };
-    this.api.apipost('acsignupcallbk',dat)
+    const dats = {'type': this.allParams['type'], 'callbkfrm': 'nawalcube', 'regdata': this.allParams['regdata'], 'msg': this.allParams['msg'] };
+    console.log(dats);
+    this.api.apipost('acsignupcallbk',dats)
     .subscribe(
       res =>    {
-                  
+                  console.log(res);
                 },
       errors => {
+                  console.log(errors);
                   this.signup_error_page();
                 }
     )
