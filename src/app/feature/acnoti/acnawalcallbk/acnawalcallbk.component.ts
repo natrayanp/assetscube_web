@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AlertService } from '../../../accommonmod/alertmod/alertcore/alert.service';
 import { ApiserviceService } from '../../../accore/apiservice/apiservice.service';
@@ -8,7 +8,7 @@ import { ApiserviceService } from '../../../accore/apiservice/apiservice.service
   templateUrl: './acnawalcallbk.component.html',
   styleUrls: ['./acnawalcallbk.component.scss']
 })
-export class AcnawalcallbkComponent implements OnInit {
+export class AcnawalcallbkComponent implements OnInit, AfterViewChecked {
   allParams: any;
   id1: string;
   notidata: any;
@@ -16,7 +16,8 @@ export class AcnawalcallbkComponent implements OnInit {
   constructor(
               private notify: AlertService,
               private route: ActivatedRoute,
-              private api: ApiserviceService
+              private api: ApiserviceService,
+              private cd: ChangeDetectorRef
               ) { }
 
 
@@ -38,6 +39,7 @@ export class AcnawalcallbkComponent implements OnInit {
   }
 
   signup_handler() {
+    console.log(this.allParams['msg']);
     if (this.allParams['regdata'] === '401') {
       this.signup_error_page();      
     } else if (this.allParams['msg'] === 'success') {
@@ -51,13 +53,20 @@ export class AcnawalcallbkComponent implements OnInit {
       this.notidata = {'id': this.id1, 'msg':'Sign up failed.  Please try again. [Reason: ' + this.allParams['msg'] + ']', 'msgtyp':'error', 'comptyp': 'alert', 'canclose': 'no' };
   }
 
+  signup_success_page(msg) {
+    console.log(msg);
+    this.notidata = {'id': this.id1, 'msg': msg, 'msgtyp':'error', 'comptyp': 'alert', 'canclose': 'no' };
+}
+
+
   signup_success_handler() {
     const dats = {'type': this.allParams['type'], 'callbkfrm': 'nawalcube', 'regdata': this.allParams['regdata'], 'msg': this.allParams['msg'] };
     console.log(dats);
     this.api.apipost('acsignupcallbk',dats)
     .subscribe(
-      res =>    {
+      (res:any) =>    {
                   console.log(res);
+                  this.signup_success_page(res.body.msg);
                 },
       errors => {
                   console.log(errors);
@@ -70,12 +79,14 @@ export class AcnawalcallbkComponent implements OnInit {
 
 
   ngAfterViewChecked() {
+
     this.notify.clearalertmsg();
-      if (JSON.stringify(this.notidata) !== '{}') {
-        console.log('creating alert');
-        this.notify.update(this.notidata.id, this.notidata.msg, this.notidata.msgtyp, this.notidata.comptyp, this.notidata.canclose);
-      }
-      
+    if (JSON.stringify(this.notidata) !== '{}') {
+      console.log('creating alert');
+      this.notify.update(this.notidata.id, this.notidata.msg, this.notidata.msgtyp, this.notidata.comptyp, this.notidata.canclose);
+      this.cd.detectChanges();
+    }
+    
   }
 
 

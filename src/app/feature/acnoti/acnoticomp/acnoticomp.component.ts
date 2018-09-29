@@ -15,7 +15,7 @@ export class AcnoticompComponent implements OnInit {
   notidata: any;
   allParams: any;
   constructor(
-              private notify: AlertService,
+              // private notify: AlertService,
               private route: ActivatedRoute,
               private api: ApiserviceService
               ) { }
@@ -70,12 +70,13 @@ export class AcnoticompComponent implements OnInit {
 
 
   ngAfterViewChecked() {
+/*
     this.notify.clearalertmsg();
       if (JSON.stringify(this.notidata) !== '{}') {
         console.log('creating alert');
         this.notify.update(this.notidata.id, this.notidata.msg, this.notidata.msgtyp, this.notidata.comptyp, this.notidata.canclose);
       }
-      
+  */    
   }
 
   navclick(e) {
