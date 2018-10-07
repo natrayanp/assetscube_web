@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, SecurityContext, OnInit, Input } from '@angular/core';
+import { DomSanitizer} from '@angular/platform-browser'
 import { AlertService } from '../alertcore/alert.service';
 
 @Component({
@@ -12,12 +13,17 @@ export class AlertcompComponent implements OnInit {
   alert_id: string;
   private subscription: any;
 
-  constructor(public notify: AlertService) { }
+  constructor(public notify: AlertService, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     console.log('insider alerts');
     console.log(this.id);
     this.alert_id = this.id;
+ }
+
+ sanitizemy(html) {
+   return this.sanitizer.sanitize(SecurityContext.HTML, html);
+  //return this.sanitizer.bypassSecurityTrustStyle(html);
  }
 
 }

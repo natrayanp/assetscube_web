@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewChecked, ChangeDetectorRef } from '@angular
 import { Router, ActivatedRoute } from '@angular/router';
 import { AlertService } from '../../../accommonmod/alertmod/alertcore/alert.service';
 import { ApiserviceService } from '../../../accore/apiservice/apiservice.service';
+import { FbauthService } from '../../../accore/fbauthservice/fbauth.service';
 
 @Component({
   selector: 'app-acnawalcallbk',
@@ -17,7 +18,8 @@ export class AcnawalcallbkComponent implements OnInit, AfterViewChecked {
               private notify: AlertService,
               private route: ActivatedRoute,
               private api: ApiserviceService,
-              private cd: ChangeDetectorRef
+              private cd: ChangeDetectorRef,
+              private auth: FbauthService,
               ) { }
 
 
@@ -41,16 +43,20 @@ export class AcnawalcallbkComponent implements OnInit, AfterViewChecked {
   signup_handler() {
     console.log(this.allParams['msg']);
     if (this.allParams['regdata'] === '401') {
-      this.signup_error_page();      
+      this.signup_error_page('');      
     } else if (this.allParams['msg'] === 'success') {
       this.signup_success_handler();
     } else {
-      this.signup_error_page();      
+      this.signup_error_page('');      
     }
   }
 
-  signup_error_page() {
-      this.notidata = {'id': this.id1, 'msg':'Sign up failed.  Please try again. [Reason: ' + this.allParams['msg'] + ']', 'msgtyp':'error', 'comptyp': 'alert', 'canclose': 'no' };
+  signup_error_page(msg) {
+      if (msg === '') {
+      this.notidata = {'id': this.id1, 'msg':'Sign up failed.  Please try again. <br> [Reason: ' + this.allParams['msg'] + ']', 'msgtyp':'error', 'comptyp': 'alert', 'canclose': 'no' };
+      } else {
+        this.notidata = {'id': this.id1, 'msg': msg, 'msgtyp':'error', 'comptyp': 'alert', 'canclose': 'no' };
+      }
   }
 
   signup_success_page(msg) {
@@ -66,16 +72,30 @@ export class AcnawalcallbkComponent implements OnInit, AfterViewChecked {
     .subscribe(
       (res:any) =>    {
                   console.log(res);
-                  this.signup_success_page(res.body.msg);
+                  this.send_pass_resetemail(res.body);
                 },
-      errors => {
+      (errors: any) => {
                   console.log(errors);
-                  this.signup_error_page();
+                  this.signup_error_page(errors.error.msg);
                 }
     )
       
     
   }
+
+send_pass_resetemail(res) {
+  console.log(res);
+  let msg  = res.msg;
+  this.auth.resetPassword(res.email)
+  .then(() => {
+    msg = msg + "<br> Passwordreset email sent to your registered email."
+    this.signup_success_page(msg);
+  })
+  .catch(error => {
+    this.signup_error_page(error);
+  }
+  );  
+}
 
 
   ngAfterViewChecked() {

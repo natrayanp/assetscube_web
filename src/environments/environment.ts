@@ -11,6 +11,14 @@ export const apiurls = {
 
 export const environment = {
   production: false,
+  firebase: {
+    apiKey: 'AIzaSyB0Shy7aNh93SuDGFSOky_0Znt4W-nUVd4',
+    authDomain: 'natauth-c532d.firebaseapp.com',
+    databaseURL: 'https://natauth-c532d.firebaseio.com',
+    projectId: 'natauth-c532d',
+    storageBucket: 'natauth-c532d.appspot.com',
+    messagingSenderId: '824531220934'
+  },
   // url_<screen + Functionality>
   url_regis: apiurls.all_api_url,
   endpt_regis : 'signup',
