@@ -7,6 +7,7 @@ export const apiurls = {
   // Individual routes
   url_regis: 'http://127.0.0.1:8081',
   url_acsignupcallbk: 'http://127.0.0.1:8081',
+  url_login: 'http://127.0.0.1:8081',
 };
 
 export const environment = {
@@ -21,7 +22,9 @@ export const environment = {
   },
   // url_<screen + Functionality>
   url_regis: apiurls.all_api_url,
-  endpt_regis : 'signup',
+  endpt_regis : 'acsignup',
+  url_login: apiurls.all_api_url,
+  endpt_login : 'aclogin',
   url_acsignupcallbk: apiurls.all_api_url,
   endpt_acsignupcallbk : 'callback',
 };

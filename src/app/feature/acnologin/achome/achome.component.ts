@@ -19,6 +19,7 @@ export class AchomeComponent implements OnInit {
   }
 
   navclick(event) {
+    console.log('achome inside');
     switch (event) {
       case ('register'): {
         // this.router.navigate(['/login']);
@@ -32,7 +33,8 @@ export class AchomeComponent implements OnInit {
         break;
       }
       case ('login'): {
-        this.router.navigate(['/login/signup']);
+        console.log("login");
+        this.router.navigate(['/login']);
         break;
       }
     }

@@ -5,6 +5,7 @@ import { AcnologinRoutingModule } from './acnologin-routing.module';
 import { AchomeComponent } from './achome/achome.component';
 
 import { AcsharedModule } from '../../acshared/acshared.module';
+import { AcloginComponent } from './aclogin/aclogin.component';
 
 @NgModule({
   imports: [
@@ -12,6 +13,6 @@ import { AcsharedModule } from '../../acshared/acshared.module';
     AcnologinRoutingModule,
     AcsharedModule
   ],
-  declarations: [AchomeComponent]
+  declarations: [AchomeComponent, AcloginComponent]
 })
 export class AcnologinModule { }
