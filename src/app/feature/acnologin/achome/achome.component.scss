@@ -1,4 +1,15 @@
 
+.btn-txt {
+    width:133px; 
+    height:54px; 
+    margin-top: 30px;
+    color: #fff; 
+    font-size: 16px; 
+    font-weight: 900;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
 
 /*
 Author: Bootstrap Themes
@@ -928,7 +939,7 @@ Author URI: http://bootstrapthemes.co
 
    .home{
        background: url(../../../../assets/images/homebg.png) no-repeat top center;
-       //background-size: cover;
+       background-size: cover;
        position: relative;
    }
    .main_home{

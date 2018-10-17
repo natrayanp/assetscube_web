@@ -8,35 +8,101 @@
 <br>
 
 <section id="home" class="home">
-    <div class="container">
-        <div class="row">
             <div class="main_home">
-                <div class="col-md-6">
-                    <div class="home_text">
-                        <h1 class="text-white">Get the most fun weather app</h1>
-                    </div>
+                <!----div class="col-md-6"-->
+                <div fxLayout="row" fxLayout.lt-md="column">
+                            <div fxFlex="15%" >
+                                <span fxFlex></span>
+                            </div>
+                            <div fxFlex="35%" fxFlex.gt-lg="35%">
 
-                    <div class="home_btns m-top-40">
-                        <a href="" class="btn btn-danger m-top-20">Download</a>
-                        <a href="" class="btn btn-primary m-top-20">Features</a>
-                    </div>
+                                <div  fxLayout="row wrap">
+                                    <div class="home_text" fxFlex="100%">
+                                        <h1 class="text-white" >Most effective wealth tracker you can put your trust on</h1>
+                                    </div>
+                                    <div>
+                                        <span fxFlexFill style="min-height:20px"></span>
+                                    </div>
+                                        <div fxFlexFill>
+                                            <button mat-raised-button color="primary" class="btn-txt"><strong>Download</strong></button>
+                                            <span fxFlex = "30px"></span>
+                                            <button mat-raised-button color="warn" class="btn-txt"><strong>Features</strong></button>
+ 
+                                            </div>
+                                </div>
+                                    
+                                    
+                            </div>
+                            <div fxFlex="35%" fxFlex.gt-lg="35%"fxLayoutAlign="space-around center" >
+                                    <div class="phone_one phone_attr1 text-center sm-m-top-50">
+                                            <img src="../../../../assets/images/phone01.png" alt="">
+                                        </div>
+                            </div>
+                            <div fxFlex="15%" >
+                                    <span fxFlex></span>
+                            </div>
+
+
                 </div>
 
-                <div class="col-md-6">
-                    <div class="phone_one phone_attr1 text-center sm-m-top-50">
-                        <div class="attr_deg">9&deg;</div>
-                        <div class="attr_rio text-uppercase">Rio</div>
-                        <div class="attr_sun text-uppercase text-white">Sunny</div>
-                        <div class="attr_lon text-uppercase text-white">London</div>
-                        <img src="/home/natrayan/Downloads/weather-apps-landing-page-free-bootstrap-template/assets/images/phone01.png" alt="">
-                    </div>
-                </div>
 
             </div>
             <div class="scrooldown">
                 <a href="#features"><i class="fa fa-chevron-down"></i></a>
             </div>
 
-        </div><!--End off row-->
-    </div><!--End off container -->
 </section> <!--End off Home Sections-->
+
+
+ <!--Featured Section-->
+ <section id="features" class="features">
+        <div class="container">
+            <div class="row">
+                <div class="main_features p-top-100">
+                    <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
+                        <div class="head_title text-center">
+                            <h2>Perfect Features</h2>
+                            <h5>Only necessary</h5>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="features_item sm-m-top-30">
+                            <div class="f_item_icon">
+                                <i class="icon icon-diamond6"></i>
+                            </div>
+                            <div class="f_item_text">
+                                <h3>Usability</h3>
+                                <p>Sometimes the simplest things are the hardest to find. 
+                                    So we created a new line for everyday life</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="features_item sm-m-top-30">
+                            <div class="f_item_icon">
+                                <i class="icon icon-layers2"></i>
+                            </div>
+                            <div class="f_item_text">
+                                <h3>Parallax Effect</h3>
+                                <p>Sometimes the simplest things are the hardest to find. 
+                                    So we created a new line for everyday life</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="features_item sm-m-top-30">
+                            <div class="f_item_icon">
+                                <i class="icon icon-business-32"></i>
+                            </div>
+                            <div class="f_item_text">
+                                <h3>Unlimites Colors</h3>
+                                <p>Sometimes the simplest things are the hardest to find. 
+                                    So we created a new line for everyday life</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- End off row -->
+        </div><!-- End off container -->
+    </section><!-- End off Featured Section-->
