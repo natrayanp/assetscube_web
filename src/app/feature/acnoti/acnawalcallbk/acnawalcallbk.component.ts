@@ -36,6 +36,8 @@ export class AcnawalcallbkComponent implements OnInit, AfterViewChecked {
   noti_handler() {       
     if (this.allParams['type'] === 'signup'){
       this.signup_handler();
+    } else if (this.allParams['type'] === 'code'){
+      this.login_handler();
     }
     
   }
@@ -95,6 +97,10 @@ send_pass_resetemail(res) {
     this.signup_error_page(error);
   }
   );  
+}
+
+login_handler() {
+  
 }
 
 
