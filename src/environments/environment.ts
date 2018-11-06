@@ -8,6 +8,7 @@ export const apiurls = {
   url_regis: 'http://127.0.0.1:8081',
   url_acsignupcallbk: 'http://127.0.0.1:8081',
   url_login: 'http://127.0.0.1:8081',
+  url_aclogincallbk: 'http://127.0.0.1:8081',
 };
 
 export const environment = {
@@ -27,6 +28,8 @@ export const environment = {
   endpt_login : 'aclogin',
   url_acsignupcallbk: apiurls.all_api_url,
   endpt_acsignupcallbk : 'callback',
+  url_aclogincallbk: apiurls.all_api_url,
+  endpt_aclogincallbk : 'callback'
 };
 
 

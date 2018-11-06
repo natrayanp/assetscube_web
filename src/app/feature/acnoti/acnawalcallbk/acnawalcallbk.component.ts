@@ -100,9 +100,52 @@ send_pass_resetemail(res) {
 }
 
 login_handler() {
-  
+  console.log(this.allParams['msg']);
+  if (this.allParams['regdata'] === '401') {
+    this.login_error_page('');      
+  } else if (this.allParams['msg'] === 'success') {
+    this.login_success_handler();
+  } else {
+    this.login_error_page('');      
+  }
 }
 
+login_error_page(msg) {
+    if (msg === '') {
+    this.notidata = {'id': this.id1, 'msg':'Login failed.  Please try again. <br> [Reason: ' + this.allParams['msg'] + ']', 'msgtyp':'error', 'comptyp': 'alert', 'canclose': 'no' };
+    } else {
+      this.notidata = {'id': this.id1, 'msg': msg, 'msgtyp':'error', 'comptyp': 'alert', 'canclose': 'no' };
+    }
+}
+
+login_success_handler() {
+  const dats = {'type': this.allParams['type'], 'callbkfrm': 'nawalcube', 'regdata': this.allParams['regdata'], 'msg': this.allParams['msg'] };
+  console.log(dats);
+  this.api.apipost('aclogincallbk',dats)
+  .subscribe(
+    (res:any) =>    {
+                console.log(res);
+                //this.send_pass_resetemail(res.body);
+                sessionStorage.setItem('natjwt', JSON.stringify(res.body.jwt));
+              },
+    (errors: any) => {
+                console.log(errors);
+                //this.signup_error_page(errors.error.msg);
+              }
+  )
+
+
+  
+
+  const msg = 'Login successful we will navigate to dashboard';
+  this.login_success_page(msg);
+}
+
+
+login_success_page(msg) {
+  console.log(msg);
+  this.notidata = {'id': this.id1, 'msg': msg, 'msgtyp':'error', 'comptyp': 'alert', 'canclose': 'no' };
+}
 
   ngAfterViewChecked() {
 
