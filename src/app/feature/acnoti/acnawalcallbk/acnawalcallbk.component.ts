@@ -126,7 +126,14 @@ login_success_handler() {
     (res:any) =>    {
                 console.log(res);
                 //this.send_pass_resetemail(res.body);
-                sessionStorage.setItem('natjwt', JSON.stringify(res.body.jwt));
+                if (res.body.type === 'applist'){
+                  console.log(res.body.applist);
+                  // this.genserv.applist = res.body.applist;
+                  //router.navigate['/apploginpg'];
+                } else if (res.body.type === 'jwt') {
+                    sessionStorage.setItem('ncjwt', JSON.stringify(res.body.jwt));
+                    this.login_to_fb(res.body.jwt);
+                }
               },
     (errors: any) => {
                 console.log(errors);
@@ -134,18 +141,31 @@ login_success_handler() {
               }
   )
 
-
-  
-
-  const msg = 'Login successful we will navigate to dashboard';
-  this.login_success_page(msg);
 }
+
+
+login_to_fb(tkn){
+  this.auth.singin_with_cust_tkn(tkn)
+  .then(() => {
+    const msg = 'Login successful we will navigate to dashboard';
+    this.login_success_page(msg);
+  })
+  .catch(error => {
+    this.signup_error_page(error);
+  }
+  );  
+}
+
 
 
 login_success_page(msg) {
+  //this.router.navigate['dashboard'];
   console.log(msg);
   this.notidata = {'id': this.id1, 'msg': msg, 'msgtyp':'error', 'comptyp': 'alert', 'canclose': 'no' };
 }
+
+
+
 
   ngAfterViewChecked() {
 
