@@ -20,6 +20,7 @@ export class AcnawalcallbkComponent implements OnInit, AfterViewChecked {
               private api: ApiserviceService,
               private cd: ChangeDetectorRef,
               private auth: FbauthService,
+              private router: Router,
               ) { }
 
 
@@ -127,9 +128,9 @@ login_success_handler() {
                 console.log(res);
                 //this.send_pass_resetemail(res.body);
                 if (res.body.type === 'applist'){
-                  console.log(res.body.applist);
+                  console.log(res.body.type);
                   // this.genserv.applist = res.body.applist;
-                  //router.navigate['/apploginpg'];
+                  this.router.navigate['lgchk'];
                 } else if (res.body.type === 'jwt') {
                     sessionStorage.setItem('ncjwt', JSON.stringify(res.body.jwt));
                     this.login_to_fb(res.body.jwt);
