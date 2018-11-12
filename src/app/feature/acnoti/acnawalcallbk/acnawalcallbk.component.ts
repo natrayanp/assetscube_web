@@ -130,7 +130,7 @@ login_success_handler() {
                 if (res.body.type === 'applist'){
                   console.log(res.body.type);
                   // this.genserv.applist = res.body.applist;
-                  this.router.navigate['lgchk'];
+                  this.router.navigate['/lgchk'];
                 } else if (res.body.type === 'jwt') {
                     sessionStorage.setItem('ncjwt', JSON.stringify(res.body.jwt));
                     this.login_to_fb(res.body.jwt);
