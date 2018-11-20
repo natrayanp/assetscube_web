@@ -27,7 +27,11 @@ export class AchomeComponent implements OnInit {
         console.log("print inside register")
         this.api.apiget('regis')
         .subscribe(
-          (res: any) => window.location.href = res.url,
+          (res: any) => {
+            console.log("eindowo location");
+            console.log(res);
+            window.location.href = res.url;
+          },
           (err) => console.log(err)
         );
         break;
