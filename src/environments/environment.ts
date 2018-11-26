@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 export const apiurls = {
   // Common routes for all
-  all_api_url: 'http://127.0.0.1:8081'/*'https://wuob9hr3o3.execute-api.ap-south-1.amazonaws.com/dev'*/,
+  all_api_url: 
+  //'http://127.0.0.1:8081',
+  'https://e294sbftrc.execute-api.ap-south-1.amazonaws.com/acdev', 
   // Individual routes
   url_regis: 'http://127.0.0.1:8081',
   url_acsignupcallbk: 'http://127.0.0.1:8081',

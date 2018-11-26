@@ -69,12 +69,17 @@ export class AcnawalcallbkComponent implements OnInit, AfterViewChecked {
 
 
   signup_success_handler() {
+    //{type: "signup", callbkfrm: "nawalcube", regdata: "a96f2d792641cd049c974e3c9e330f99", msg: "success"}
     const dats = {'type': this.allParams['type'], 'callbkfrm': 'nawalcube', 'regdata': this.allParams['regdata'], 'msg': this.allParams['msg'] };
     console.log(dats);
     this.api.apipost('acsignupcallbk',dats)
     .subscribe(
       (res:any) =>    {
                   console.log(res);
+                  /*
+                  res data
+                  success ==> {email: "k.ananthi@gmail.com", msg: "User registered successfully.  Please reset password before first login", regdata: "200", typ: "signup"}                  
+                  */
                   this.send_pass_resetemail(res.body);
                 },
       (errors: any) => {
